@@ -1,16 +1,14 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from read_files import FileProcessing
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    input_path = "D:/fileprocessing/input"
+    out_path = "D:/fileprocessing/output/RESULT.csv"
+    fileprocessor = FileProcessing(input_path, out_path)
+    files = fileprocessor.list_files()
+    data_frames = fileprocessor.read_files(files)
+    filtered_data = fileprocessor.filter_dataframes(data_frames)
+    print(filtered_data)
+    fileprocessor.save_file(filtered_data)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
